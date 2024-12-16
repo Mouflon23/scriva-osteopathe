@@ -1,0 +1,46 @@
+---
+const services = [
+  {
+    title: 'Consultation Classique',
+    description: 'Bilan complet et traitement adapté à vos besoins spécifiques.',
+    duration: '45-60 min',
+    price: '65€'
+  },
+  {
+    title: 'Ostéopathie Pédiatrique',
+    description: 'Suivi spécialisé pour les nourrissons et enfants.',
+    duration: '45 min',
+    price: '65€'
+  },
+  {
+    title: 'Suivi Sportif',
+    description: 'Prévention et traitement des blessures sportives.',
+    duration: '45-60 min',
+    price: '65€'
+  },
+  {
+    title: 'Femmes Enceintes',
+    description: 'Accompagnement pendant la grossesse et post-partum.',
+    duration: '45-60 min',
+    price: '65€'
+  }
+];
+---
+
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="font-display text-3xl text-primary text-center mb-12">Mes Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map(service => (
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="font-display text-xl text-primary mb-3">{service.title}</h3>
+          <p class="text-gray-600 mb-4">{service.description}</p>
+          <div class="flex justify-between text-sm text-gray-500">
+            <span>{service.duration}</span>
+            <span>{service.price}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
