@@ -1,0 +1,37 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-50 mt-20">
+  <div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-display text-xl text-primary mb-4">Contact</h3>
+        <p class="text-gray-600">
+          123 Rue Example<br />
+          75000 Paris<br />
+          Tel: 01 23 45 67 89<br />
+          Email: contact@melissa-scriva.fr
+        </p>
+      </div>
+      <div>
+        <h3 class="font-display text-xl text-primary mb-4">Horaires</h3>
+        <p class="text-gray-600">
+          Lundi - Vendredi: 9h - 19h<br />
+          Samedi: 9h - 13h<br />
+          Dimanche: Fermé
+        </p>
+      </div>
+      <div>
+        <h3 class="font-display text-xl text-primary mb-4">Liens Utiles</h3>
+        <ul class="space-y-2 text-gray-600">
+          <li><a href="/mentions-legales" class="hover:text-primary">Mentions Légales</a></li>
+          <li><a href="/politique-confidentialite" class="hover:text-primary">Politique de Confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center mt-8 pt-8 border-t border-gray-200">
+      <p class="text-gray-500">&copy; {currentYear} Cabinet d'Ostéopathie Mélissa Scriva. Tous droits réservés.</p>
+    </div>
+  </div>
+</footer>
