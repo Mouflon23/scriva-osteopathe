@@ -1,0 +1,45 @@
+---
+import NavLink from './NavLink.astro';
+import MobileMenu from './MobileMenu.astro';
+
+const navItems = [
+  { text: 'Accueil', href: '/' },
+  { text: 'À Propos', href: '/about' },
+  { text: 'Services', href: '/services' },
+  { text: 'Contact', href: '/contact' },
+];
+---
+
+<header class="fixed w-full top-0 z-50 bg-white shadow-sm">
+  <nav class="container mx-auto px-4 py-4">
+    <div class="flex justify-between items-center">
+      <a href="/" class="font-display text-2xl text-primary">Mélissa Scriva</a>
+      <div class="hidden md:flex items-center space-x-8">
+        {navItems.map(item => (
+          <NavLink href={item.href}>{item.text}</NavLink>
+        ))}
+        <a
+          href="https://www.doctolib.fr/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
+        >
+          Prendre RDV
+        </a>
+      </div>
+      <button id="open-menu" class="md:hidden text-primary p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+  <MobileMenu navItems={navItems} />
+</header>
+
+<style>
+  header {
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+</style>
