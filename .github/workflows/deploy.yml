@@ -1,31 +1,38 @@
-name: Deploy Astro Site
+name: Deploy to GitHub Pages
 
 on:
+  # Trigger the workflow on pushes to the `main` branch
   push:
-    branches:
-      - main  # Change this if your default branch is different
+    branches: [ main ]
+  # Allows manual trigger from the GitHub Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout your repository using git
         uses: actions/checkout@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
+      - name: Install dependencies and build your site with Astro
+        uses: withastro/action@v3
         with:
-          node-version: 18  # Use the latest LTS version
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build Astro site
-        run: npm run build
-
+          # Set the path to your project if it's not the root folder (optional)
+          node-version: '20'  # You can specify your preferred Node.js version
+          
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        id: deployment
+        uses: actions/deploy-pages@v4
         with:
-          branch: gh-pages  # The branch where GitHub Pages will serve your site
-          folder: dist  # Ensure this matches your Astro output folder
+          folder: dist  # Make sure it matches your output folder for Astro
