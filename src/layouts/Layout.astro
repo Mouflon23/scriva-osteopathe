@@ -15,10 +15,23 @@ const { title } = Astro.props;
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Cabinet d'Ostéopathie de Mélissa Scriva" />
+		<meta name="description" content="Consultations d'ostéopathie avec Melissa Scriva à Aix-En-Provence et à Marignane. Prise de rendez-vous rapide et soins adaptés à vos besoins." />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- Open Graph -->
+		<meta property="og:title" content="Ostéopathe à Aix-En-Provence et à Marignane - Melissa Scriva" />
+		<meta property="og:description" content="Consultations d'ostéopathie professionnelles pour tous. Prenez rendez-vous en ligne." />
+		<meta property="og:image" content="https://scriva-osteopathe.fr/images/preview.jpg" />
+		<meta property="og:url" content="https://scriva-osteopathe.fr/" />
+		<meta property="og:type" content="website" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Ostéopathe à Aix-En-Provence et à Marignane - Melissa Scriva" />
+		<meta name="twitter:description" content="Consultations ostéopathiques sur mesure avec Melissa Scriva." />
+		<meta name="twitter:image" content="https://scriva-osteopathe.fr/images/preview.jpg" />	
 		<title>{title}</title>
 	</head>
 	<body class="min-h-screen bg-white">
