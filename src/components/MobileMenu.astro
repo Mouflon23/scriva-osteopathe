@@ -10,18 +10,18 @@ const { navItems } = Astro.props;
 
 <div
   id="mobile-menu"
-  class="fixed inset-0 bg-white transform translate-x-full transition-transform duration-300 ease-in-out md:hidden"
+  class="fixed inset-0 bg-white translate-x-full transform transition-transform duration-300 ease-in-out md:hidden"
 >
   <div class="h-full flex flex-col">
     <div class="flex justify-between items-center p-4 border-b">
       <span class="font-display text-xl text-primary">Menu</span>
-      <button id="close-menu" class="text-primary p-2">
+      <button id="close-menu" class="text-primary p-2" style="visibility: hidden; pointer-events: none;">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
-    <nav class="flex-1 px-4 py-6">
+    <nav class="flex-1 px-4 py-6 bg-white">
       <ul class="space-y-4">
         {navItems.map(item => (
           <li>
@@ -30,7 +30,7 @@ const { navItems } = Astro.props;
         ))}
       </ul>
     </nav>
-    <div class="p-4 border-t">
+    <div class="p-4 border-t bg-white">
       <a
         href="https://www.doctolib.fr/"
         target="_blank"
@@ -49,10 +49,16 @@ const { navItems } = Astro.props;
   const closeButton = document.getElementById('close-menu');
 
   function toggleMenu(show: boolean) {
-    if (mobileMenu) {
-      mobileMenu.style.transform = show ? 'translateX(0)' : 'translateX(0)';
-    }
+  if (mobileMenu) {
+    mobileMenu.style.transform = show ? 'translateX(0)' : 'translateX(100%)';
   }
+
+  // Enable or disable close button based on menu state
+  if (closeButton) {
+      closeButton.style.visibility = show ? 'visible' : 'hidden'; // Hide when menu is closed
+      closeButton.style.pointerEvents = show ? 'auto' : 'none'; // Disable clicks when menu is closed
+    }
+}
 
   openButton?.addEventListener('click', () => toggleMenu(true));
   closeButton?.addEventListener('click', () => toggleMenu(false));
