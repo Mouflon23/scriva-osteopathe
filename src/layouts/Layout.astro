@@ -31,7 +31,66 @@ const { title } = Astro.props;
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content="Ostéopathe à Aix-En-Provence et à Marignane - Melissa Scriva" />
 		<meta name="twitter:description" content="Consultations ostéopathiques sur mesure avec Melissa Scriva." />
-		<meta name="twitter:image" content="https://scriva-osteopathe.fr/images/preview.jpg" />	
+		<meta name="twitter:image" content="https://scriva-osteopathe.fr/images/preview.jpg" />
+		  <!-- JSON-LD Structured Data -->
+		  <script type="application/ld+json">
+			{JSON.stringify({
+			  "@context": "https://schema.org",
+			  "@graph": [
+				{
+				  "@type": "LocalBusiness",
+				  "name": "Melissa Scriva - Ostéopathe (Adresse 1)",
+				  "image": "https://scriva-osteopathe.fr/images/logo.png",
+				  "@id": "https://scriva-osteopathe.fr/",
+				  "url": "https://scriva-osteopathe.fr/",
+				  "telephone": "+33 6 XX XX XX XX",
+				  "address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Adresse complète 1",
+					"addressLocality": "Ville 1",
+					"postalCode": "Code Postal 1",
+					"addressCountry": "FR"
+				  },
+				  "geo": {
+					"@type": "GeoCoordinates",
+					"latitude": 48.8566,
+					"longitude": 2.3522
+				  },
+				  "openingHours": "Mo-Fr 09:00-18:00",
+				  "sameAs": [
+					"https://www.facebook.com/melissascrivaosteopathe",
+					"https://www.instagram.com/melissascrivaosteopathe"
+				  ]
+				},
+				{
+				  "@type": "LocalBusiness",
+				  "name": "Melissa Scriva - Ostéopathe (Adresse 2)",
+				  "image": "https://scriva-osteopathe.fr/images/logo.png",
+				  "@id": "https://scriva-osteopathe.fr/location2",
+				  "url": "https://scriva-osteopathe.fr/",
+				  "telephone": "+33 6 XX XX XX XX",
+				  "address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Adresse complète 2",
+					"addressLocality": "Ville 2",
+					"postalCode": "Code Postal 2",
+					"addressCountry": "FR"
+				  },
+				  "geo": {
+					"@type": "GeoCoordinates",
+					"latitude": 43.6045,
+					"longitude": 1.4442
+				  },
+				  "openingHours": "Mo-Fr 09:00-18:00",
+				  "sameAs": [
+					"https://www.facebook.com/melissascrivaosteopathe",
+					"https://www.instagram.com/melissascrivaosteopathe"
+				  ]
+				}
+			  ]
+			})}
+		  </script>
+			
 		<title>{title}</title>
 	</head>
 	<body class="min-h-screen bg-white">
