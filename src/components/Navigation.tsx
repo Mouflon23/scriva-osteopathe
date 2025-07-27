@@ -25,7 +25,7 @@ const Navigation: React.FC<NavigationProps> = ({
           <div className="flex-shrink-0">
             <div className="flex items-center space-x-3">
               <img
-                src="/images/logo.jpg"
+                src="./images/logo.jpg"
                 alt="Mélissa Scriva - Ostéopathe"
                 className="h-12 w-12 rounded-full object-cover shadow-sm"
               />
