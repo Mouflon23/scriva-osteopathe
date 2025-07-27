@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { Link } from "react-router-dom";
 import { siteData } from "../data/siteData";
 import emailjs from "@emailjs/browser";
 
@@ -205,12 +204,12 @@ const ContactSection: React.FC = () => {
                     </div>
                   </div>
                   <div className="flex justify-center">
-                    <Link
-                      to="/marignane"
+                    <a
+                      href="/marignane"
                       className="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300 text-sm"
                     >
                       Réserver à Marignane
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
