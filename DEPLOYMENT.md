@@ -1,125 +1,123 @@
-# GitHub Pages Deployment Guide
+# Guide de Déploiement GitHub Pages
 
-This guide will help you deploy your Scriva Osteopathe website to GitHub Pages with support for custom domains.
+Ce guide vous aidera à déployer votre site web Scriva Ostéopathe sur GitHub Pages avec support pour le domaine personnalisé.
 
-## Prerequisites
+## Prérequis
 
-1. Make sure your project is pushed to a GitHub repository
-2. Ensure you have the necessary permissions to enable GitHub Pages
-3. For custom domain: Have a domain name registered with a DNS provider
+1. Assurez-vous que votre projet est poussé vers un dépôt GitHub
+2. Assurez-vous d'avoir les permissions nécessaires pour activer GitHub Pages
+3. Pour le domaine personnalisé : Avoir un nom de domaine enregistré avec un fournisseur DNS
 
-## Automatic Deployment (Recommended)
+## Déploiement Automatique (Recommandé)
 
-The project is configured with GitHub Actions for automatic deployment. Here's how to set it up:
+Le projet est configuré avec GitHub Actions pour un déploiement automatique. Voici comment le configurer :
 
-### 1. Enable GitHub Pages
+### 1. Activer GitHub Pages
 
-1. Go to your GitHub repository
-2. Click on "Settings" tab
-3. Scroll down to "Pages" section in the left sidebar
-4. Under "Source", select "Deploy from a branch"
-5. Choose "gh-pages" branch and "/ (root)" folder
-6. Click "Save"
+1. Allez dans votre dépôt GitHub
+2. Cliquez sur l'onglet "Settings"
+3. Faites défiler jusqu'à la section "Pages" dans la barre latérale gauche
+4. Sous "Source", sélectionnez "Deploy from a branch"
+5. Choisissez la branche "gh-pages" et le dossier "/ (root)"
+6. Cliquez sur "Save"
 
-### 2. Enable GitHub Actions
+### 2. Activer GitHub Actions
 
-1. Go to your repository's "Actions" tab
-2. You should see the "Deploy to GitHub Pages" workflow
-3. Click on it and click "Run workflow" if needed
-4. The workflow will automatically run on every push to the main branch
+1. Allez dans l'onglet "Actions" de votre dépôt
+2. Vous devriez voir le workflow "Deploy to GitHub Pages"
+3. Cliquez dessus et cliquez sur "Run workflow" si nécessaire
+4. Le workflow s'exécutera automatiquement à chaque push sur la branche main
 
-## Custom Domain Setup
+## Configuration du Domaine Personnalisé
 
-### 1. Configure Custom Domain in GitHub
+### 1. Configurer le Domaine Personnalisé dans GitHub
 
-1. Go to your repository's "Settings" → "Pages"
-2. In the "Custom domain" field, enter your domain (e.g., `yourdomain.com`)
-3. Check "Enforce HTTPS" if available
-4. Click "Save"
+1. Allez dans votre dépôt → "Settings" → "Pages"
+2. Dans le champ "Custom domain", entrez `scriva-osteopathe.fr`
+3. Cochez "Enforce HTTPS" si disponible
+4. Cliquez sur "Save"
 
-### 2. Update CNAME File
+### 2. Fichier CNAME Mis à Jour
 
-1. Edit the `public/CNAME` file in your project
-2. Replace the placeholder with your actual domain name
-3. Commit and push the changes
+Le fichier `public/CNAME` contient déjà votre domaine : `scriva-osteopathe.fr`
 
-### 3. DNS Configuration
+### 3. Configuration DNS
 
-Configure your DNS records with your domain provider:
+Configurez vos enregistrements DNS avec votre fournisseur de domaine :
 
-#### Option A: Apex Domain (yourdomain.com)
+#### Option A : Domaine Principal (scriva-osteopathe.fr)
 
 ```
 Type: A
-Name: @
-Value: 185.199.108.153
-Value: 185.199.109.153
-Value: 185.199.110.153
-Value: 185.199.111.153
+Nom: @
+Valeur: 185.199.108.153
+Valeur: 185.199.109.153
+Valeur: 185.199.110.153
+Valeur: 185.199.111.153
 ```
 
-#### Option B: Subdomain (www.yourdomain.com)
+#### Option B : Sous-domaine (www.scriva-osteopathe.fr)
 
 ```
 Type: CNAME
-Name: www
-Value: [your-username].github.io
+Nom: www
+Valeur: [votre-username].github.io
 ```
 
-### 4. Verify DNS Propagation
+### 4. Vérifier la Propagation DNS
 
-After updating DNS, it may take up to 24 hours for changes to propagate. You can check using:
+Après avoir mis à jour le DNS, il peut falloir jusqu'à 24 heures pour que les changements se propagent. Vous pouvez vérifier avec :
 
-- `dig yourdomain.com` (for apex domain)
-- `dig www.yourdomain.com` (for subdomain)
+- `dig scriva-osteopathe.fr` (pour le domaine principal)
+- `dig www.scriva-osteopathe.fr` (pour le sous-domaine)
 
-## Manual Deployment
+## Déploiement Manuel
 
-If you prefer manual deployment:
+Si vous préférez un déploiement manuel :
 
-1. Install gh-pages package:
+1. Installer le package gh-pages :
 
    ```bash
    npm install --save-dev gh-pages
    ```
 
-2. Deploy manually:
+2. Déployer manuellement :
    ```bash
    npm run deploy
    ```
 
 ## Configuration
 
-- The site uses relative paths (`base: './'`) for compatibility with custom domains
-- Build output goes to the `dist` folder
-- GitHub Actions automatically builds and deploys on main branch pushes
-- CNAME file is automatically included in the build
+- Le site utilise des chemins relatifs (`base: './'`) pour la compatibilité avec les domaines personnalisés
+- La sortie de build va dans le dossier `dist`
+- GitHub Actions construit et déploie automatiquement à chaque push sur la branche main
+- Le fichier CNAME est automatiquement inclus dans le build
 
-## Accessing Your Site
+## Accéder à Votre Site
 
-- **GitHub Pages URL**: `https://[your-username].github.io/scriva-osteopathe/`
-- **Custom Domain**: `https://yourdomain.com` (after setup)
+- **URL GitHub Pages** : `https://[votre-username].github.io/scriva-osteopathe/`
+- **Domaine Personnalisé** : `https://scriva-osteopathe.fr` (après configuration)
 
-## Troubleshooting
+## Dépannage
 
-### Custom Domain Issues
+### Problèmes de Domaine Personnalisé
 
-- Ensure DNS records are correctly configured
-- Check that CNAME file contains the correct domain
-- Verify DNS propagation using online tools
-- Wait up to 24 hours for DNS changes to take effect
+- Assurez-vous que les enregistrements DNS sont correctement configurés
+- Vérifiez que le fichier CNAME contient le bon domaine
+- Vérifiez la propagation DNS avec des outils en ligne
+- Attendez jusqu'à 24 heures pour que les changements DNS prennent effet
 
-### General Issues
+### Problèmes Généraux
 
-- If the site doesn't load, check that GitHub Pages is enabled in repository settings
-- Ensure the gh-pages branch exists and contains the built files
-- Check GitHub Actions logs for any build errors
-- Verify HTTPS is enabled for custom domains
+- Si le site ne se charge pas, vérifiez que GitHub Pages est activé dans les paramètres du dépôt
+- Assurez-vous que la branche gh-pages existe et contient les fichiers construits
+- Vérifiez les logs GitHub Actions pour toute erreur de build
+- Vérifiez que HTTPS est activé pour les domaines personnalisés
 
 ## SSL/HTTPS
 
-GitHub Pages automatically provides SSL certificates for custom domains. Make sure to:
+GitHub Pages fournit automatiquement des certificats SSL pour les domaines personnalisés. Assurez-vous de :
 
-1. Check "Enforce HTTPS" in GitHub Pages settings
-2. Wait for the SSL certificate to be provisioned (can take up to 24 hours)
-3. Test both HTTP and HTTPS versions of your site
+1. Cocher "Enforce HTTPS" dans les paramètres GitHub Pages
+2. Attendre que le certificat SSL soit provisionné (peut prendre jusqu'à 24 heures)
+3. Tester les versions HTTP et HTTPS de votre site
