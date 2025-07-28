@@ -1,5 +1,19 @@
 User-agent: *
 Allow: /
 
+# Empêcher l'indexation des fichiers de développement
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+Disallow: /dist/
+
+# Autoriser les ressources importantes
+Allow: /images/
+Allow: /manifest.webmanifest
+Allow: /sitemap.xml
+
+# Paramètres de crawl
+Crawl-delay: 1
+
 # Sitemap
 Sitemap: https://scriva-osteopathe.fr/sitemap.xml 
