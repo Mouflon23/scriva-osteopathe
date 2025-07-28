@@ -33,12 +33,16 @@
   <body>
     <div id="root"></div>
     <script>
-      // Redirect to index.html for SPA routing
-      window.location.href =
-        "./index.html" +
-        window.location.pathname +
-        window.location.search +
-        window.location.hash;
+      // Enhanced SPA routing for GitHub Pages
+      (function () {
+        var path = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+
+        // Redirect to index.html with the original path
+        var redirectUrl = "./index.html" + path + search + hash;
+        window.location.href = redirectUrl;
+      })();
     </script>
   </body>
 </html>
