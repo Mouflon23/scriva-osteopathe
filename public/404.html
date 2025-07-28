@@ -32,6 +32,21 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="./src/main.tsx"></script>
+    <script>
+      // SPA routing for GitHub Pages - avoid infinite loop
+      (function () {
+        var path = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+
+        // Only redirect if we're not already on index.html
+        if (!path.includes("index.html")) {
+          // Store the original path for React Router
+          sessionStorage.setItem("originalPath", path + search + hash);
+          // Redirect to index.html
+          window.location.href = "./index.html";
+        }
+      })();
+    </script>
   </body>
 </html>

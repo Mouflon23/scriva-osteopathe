@@ -1,5 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import Navigation from "./components/Navigation";
 import HeroSection from "./components/HeroSection";
 import OsteopathySection from "./components/OsteopathySection";
@@ -32,13 +37,31 @@ function HomePage() {
   );
 }
 
+function AppRouter() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Handle original path from GitHub Pages 404 redirect
+    const originalPath = sessionStorage.getItem("originalPath");
+    if (originalPath) {
+      navigate(originalPath);
+      // Clear the stored path
+      sessionStorage.removeItem("originalPath");
+    }
+  }, [navigate]);
+
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/marignane" element={<MarignanePage />} />
+    </Routes>
+  );
+}
+
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/marignane" element={<MarignanePage />} />
-      </Routes>
+      <AppRouter />
     </Router>
   );
 }
