@@ -241,7 +241,7 @@ const ContactSection: React.FC = () => {
           </div>
 
           {/* Formulaire de contact */}
-          <div className="max-w-4xl mx-auto">
+          <div className="">
             <div className="bg-gray-50 p-8 rounded-2xl">
               <h3 className="text-xl font-bold text-gray-900 mb-6">
                 Envoyez-moi un message
