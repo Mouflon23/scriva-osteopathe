@@ -1,1 +1,26 @@
+# Permettre l'accès direct aux fichiers statiques
+/sitemap.xml
+/robots.txt
+/manifest.webmanifest
+/images/*
+/404.html
+/.nojekyll
+/CNAME
+
+# Rediriger uniquement les routes d'application vers index.html
+/*.html
+/*.css
+/*.js
+/*.png
+/*.jpg
+/*.jpeg
+/*.gif
+/*.svg
+/*.ico
+/*.woff
+/*.woff2
+/*.ttf
+/*.eot
+
+# Rediriger les routes d'application (pas les fichiers)
 /*    /index.html   200 

@@ -1,0 +1,37 @@
+# Permettre l'accès direct aux fichiers statiques
+RewriteEngine On
+
+# Ne pas rediriger les fichiers existants
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Ne pas rediriger les dossiers existants
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Permettre l'accès direct au sitemap et robots.txt
+RewriteRule ^(sitemap\.xml|robots\.txt|manifest\.webmanifest|404\.html|\.nojekyll|CNAME)$ - [L]
+
+# Permettre l'accès aux images
+RewriteRule ^images/.*$ - [L]
+
+# Rediriger toutes les autres routes vers index.html (SPA)
+RewriteRule ^ index.html [L]
+
+# Headers pour le SEO
+<IfModule mod_headers.c>
+    Header set X-Robots-Tag "index, follow"
+</IfModule>
+
+# Compression GZIP
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule> 
