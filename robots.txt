@@ -1,3 +1,7 @@
+# Robots.txt pour Scriva Ostéopathe
+# https://scriva-osteopathe.fr
+
+# Règles générales pour tous les robots
 User-agent: *
 Allow: /
 
@@ -7,10 +11,12 @@ Disallow: /src/
 Disallow: /.git/
 Disallow: /dist/
 
-# Autoriser les ressources importantes
+# Autoriser explicitement les ressources importantes
 Allow: /images/
 Allow: /manifest.webmanifest
 Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /404.html
 
 # Paramètres de crawl optimisés
 Crawl-delay: 1
@@ -21,4 +27,15 @@ Sitemap: https://scriva-osteopathe.fr/sitemap.xml
 # Instructions spécifiques pour Google
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 0.5 
+Crawl-delay: 0.5
+
+# Instructions spécifiques pour Googlebot-Image
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /manifest.webmanifest
+Crawl-delay: 0.5
+
+# Instructions spécifiques pour Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1 
