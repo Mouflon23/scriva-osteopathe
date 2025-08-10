@@ -1,1 +1,9 @@
+# Exclure les fichiers statiques importants de la redirection SPA
+/sitemap.xml
+/robots.txt
+/manifest.webmanifest
+/images/*
+/404.html
+
+# Rediriger toutes les autres routes vers index.html pour le SPA
 /*    /index.html   200 

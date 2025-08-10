@@ -12,8 +12,13 @@ Allow: /images/
 Allow: /manifest.webmanifest
 Allow: /sitemap.xml
 
-# Paramètres de crawl
+# Paramètres de crawl optimisés
 Crawl-delay: 1
 
-# Sitemap
-Sitemap: https://scriva-osteopathe.fr/sitemap.xml 
+# Sitemap principal
+Sitemap: https://scriva-osteopathe.fr/sitemap.xml
+
+# Instructions spécifiques pour Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5 
