@@ -1,3 +1,8 @@
+# Forcer HTTPS
+http://scriva-osteopathe.fr/* https://scriva-osteopathe.fr/:splat 301!
+http://www.scriva-osteopathe.fr/* https://scriva-osteopathe.fr/:splat 301!
+https://www.scriva-osteopathe.fr/* https://scriva-osteopathe.fr/:splat 301!
+
 # Permettre l'accès direct aux fichiers statiques
 /sitemap.xml
 /robots.txt
