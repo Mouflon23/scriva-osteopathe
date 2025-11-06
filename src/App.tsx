@@ -5,6 +5,7 @@ import {
   Route,
   useNavigate,
 } from "react-router-dom";
+import { HelmetProvider, Helmet } from "react-helmet-async";
 import Navigation from "./components/Navigation";
 import HeroSection from "./components/HeroSection";
 import OsteopathySection from "./components/OsteopathySection";
@@ -20,20 +21,26 @@ function HomePage() {
   const { activeSection, scrollToSection } = useScrollTracking();
 
   return (
-    <div className="min-h-screen bg-white">
-      <Navigation
-        activeSection={activeSection}
-        onSectionClick={scrollToSection}
-      />
-
-      <HeroSection onSectionClick={scrollToSection} />
-      <OsteopathySection />
-      <AboutSection />
-      <TestimonialsSection />
-      <PricingSection />
-      <ContactSection />
-      <Footer />
-    </div>
+    <>
+      <Helmet>
+        <link rel="canonical" href="https://scriva-osteopathe.fr/" />
+      </Helmet>
+      <div className="min-h-screen bg-white">
+        <Navigation
+          activeSection={activeSection}
+          onSectionClick={scrollToSection}
+        />
+        <main>
+          <HeroSection onSectionClick={scrollToSection} />
+          <OsteopathySection />
+          <AboutSection />
+          <TestimonialsSection />
+          <PricingSection />
+          <ContactSection />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }
 
@@ -60,9 +67,11 @@ function AppRouter() {
 
 function App() {
   return (
-    <Router>
-      <AppRouter />
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <AppRouter />
+      </Router>
+    </HelmetProvider>
   );
 }
 

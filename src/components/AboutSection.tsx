@@ -21,8 +21,11 @@ const AboutSection: React.FC = () => {
           <div>
             <img
               src="https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Cabinet d'ostéopathie"
+              alt="Cabinet d'ostéopathie moderne et accueillant avec équipement professionnel pour consultations à Aix-en-Provence"
               className="rounded-2xl shadow-xl w-full h-[400px] object-cover"
+              loading="lazy"
+              width="800"
+              height="400"
             />
           </div>
           <div>

@@ -26,8 +26,11 @@ const Navigation: React.FC<NavigationProps> = ({
             <div className="flex items-center space-x-3">
               <img
                 src="./images/logo.jpg"
-                alt="Mélissa Scriva - Ostéopathe"
+                alt="Logo Mélissa Scriva - Ostéopathe D.O. à Aix-en-Provence et Marignane"
                 className="h-12 w-12 rounded-full object-cover shadow-sm"
+                width="48"
+                height="48"
+                loading="eager"
               />
               <div>
                 <h1 className="text-xl font-bold text-gray-900">

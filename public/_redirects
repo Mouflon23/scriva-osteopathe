@@ -1,26 +1,7 @@
-# Permettre l'accès direct aux fichiers statiques
-/sitemap.xml
-/robots.txt
-/manifest.webmanifest
-/images/*
-/404.html
-/.nojekyll
-/CNAME
+# Netlify redirects for Single Page Application
+# All routes should be handled by the SPA router
+# Static files (images, CSS, JS, etc.) are served directly by Netlify without redirects
 
-# Rediriger uniquement les routes d'application vers index.html
-/*.html
-/*.css
-/*.js
-/*.png
-/*.jpg
-/*.jpeg
-/*.gif
-/*.svg
-/*.ico
-/*.woff
-/*.woff2
-/*.ttf
-/*.eot
-
-# Rediriger les routes d'application (pas les fichiers)
+# Catch-all rule: redirect all routes to index.html for client-side routing
+# The 200 status code means "rewrite" - it serves index.html but keeps the URL
 /*    /index.html   200 

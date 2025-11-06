@@ -9,6 +9,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSectionClick }) => {
     <section
       id="accueil"
       className="pt-5 min-h-screen flex items-center bg-gradient-to-br from-teal-50 via-white to-blue-50"
+      aria-label="Section d'accueil"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -19,7 +20,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSectionClick }) => {
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-4 leading-relaxed">
               <span className="text-teal-600 font-semibold">
-                Ostéopathe D.O. TEST
+                Ostéopathe D.O.
               </span>{" "}
               à Aix-en-Provence et Marignane
             </p>
@@ -55,8 +56,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSectionClick }) => {
             <div className="relative">
               <img
                 src="https://t3.ftcdn.net/jpg/03/18/56/32/360_F_318563228_ztOwtb9hheLIt3vyfav23W4djbXJgL9V.jpg"
-                alt="Mélissa Scriva - Ostéopathe à Aix-en-Provence"
+                alt="Mélissa Scriva, ostéopathe D.O. diplômée, proposant des consultations d'ostéopathie à Aix-en-Provence et Marignane"
                 className="rounded-2xl shadow-2xl w-full h-[450px] object-cover"
+                loading="eager"
+                width="800"
+                height="450"
               />
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
