@@ -19,7 +19,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSectionClick }) => {
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-4 leading-relaxed">
               <span className="text-teal-600 font-semibold">
-                Ostéopathe D.O.
+                Ostéopathe D.O. TEST
               </span>{" "}
               à Aix-en-Provence et Marignane
             </p>
